@@ -11,10 +11,10 @@ target=fixinc.sh
 
 # Check for special fix rules for particular targets
 case $machine in
+    *-rpos* | \
     i?86-*-cygwin* | \
     i?86-*-mingw32* | \
     x86_64-*-mingw32* | \
-    *-rpos* | \
     powerpc-*-eabisim* | \
     powerpc-*-eabi*    | \
     powerpc-*-rtems*   | \

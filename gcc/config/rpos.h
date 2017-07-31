@@ -1,6 +1,6 @@
 /* Useful if you wish to make target-specific GCC changes. */
-#undef TARGET_MYOS
-#define TARGET_MYOS 1
+#undef TARGET_RPOS
+#define TARGET_RPOS 1
  
 /* Default arguments you want when running your
  *    i686-rpos-gcc toolchain */
@@ -21,7 +21,7 @@
 #undef TARGET_OS_CPP_BUILTINS
 #define TARGET_OS_CPP_BUILTINS() \
     do { \
-        builtin_define ("__myos__"); \
+        builtin_define ("__rpos__"); \
         builtin_define ("__unix__"); \
         builtin_assert ("system=rpos"); \
         builtin_assert ("system=unix"); \
