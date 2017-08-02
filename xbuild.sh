@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-#export SYSROOT="$(readlink -f $(pwd)/../../..)"
-#export PREFIX="${SYSROOT}/usr"
-#export TARGET=i686-rpos
-#export PATH="${PREFIX}/bin:$PATH"
-
-#../configure --target=$TARGET --prefix=$PREFIX --with-sysroot=${SYSROOT} --disable-nls --enable-languages=c
-#../configure --target=$TARGET --prefix=$PREFIX --with-sysroot=${SYSROOT} --with-newlib --disable-shared --disable-libssp --enable-languages=c
-
 abort() {
     MESSAGE=$1
     EXITCODE=$2
@@ -26,15 +18,14 @@ require_env() {
 }
 
 require_env "SYSROOT" "${SYSROOT}"
-require_env "PREFIX" "${PREFIX}"
+require_env "XPREFIX" "${XPREFIX}"
 require_env "TARGET" "${TARGET}"
-require_env "PATH" "${PATH}"
 
 rm -rf gcc-build
 mkdir gcc-build
 cd gcc-build
 
-CONFIG="--target=${TARGET} --prefix=${PREFIX}"
+CONFIG="--target=${TARGET} --prefix=${XPREFIX}"
 
 ## Enabled languages
 CONFIG="${CONFIG} --enable-languages=c"
